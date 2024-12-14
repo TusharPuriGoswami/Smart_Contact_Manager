@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+ th:replace="base::Layout(~{::section})"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index Page</title>
+    
+    
+    
+    
+</head>
+
+
+<body>
+
+<section>
+
+ 
+  <form  id="login-form" class="form" th:action= "@{/dologin}" action="#" method="post">
+    
+    <div class="row">
+
+      <svg    style="width: 95%; height: 100px; "  alt="logo" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="0.00016"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="m 8 1 c -1.65625 0 -3 1.34375 -3 3 s 1.34375 3 3 3 s 3 -1.34375 3 -3 s -1.34375 -3 -3 -3 z m -1.5 7 c -2.492188 0 -4.5 2.007812 -4.5 4.5 v 0.5 c 0 1.109375 0.890625 2 2 2 h 6 v -1 h -3 v -4 h 3 v -1.972656 c -0.164062 -0.019532 -0.332031 -0.027344 -0.5 -0.027344 z m 4.5 0 v 3 h -3 v 2 h 3 v 3 h 2 v -3 h 3 v -2 h -3 v -3 z m 0 0" fill="#2e3436"  ></path> </g></svg>
+
+
+        <h1 style="margin-left: 19%;">Smart Contact Manager</h1>
+
+        <h5  class="information-text">Welcome to the SmartContactManager</h5>
+
+        <div style="margin-left: 30%;" th:if="${param.error}" class="alert alert-danger">
+          Invalid username and password
+    </div>
+    <div style="margin-left: 30%;" th:if="${param.logout}" class="alert alert-success">
+      You have been logged out    
+</div>
+
+<div style="margin-left: 30%;" th:if="${param.change}" class="alert alert-success">
+  <p th:text="${param.change}"></p>  
+  <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+</div>
+
+        <div class="form-group">
+          <p><label for="username">Email</label></p>
+          <input required type="email" name="username" placeholder="Enter Email here" id="user_email">
+
+          <p><label for="username">Password</label></p>
+          <input required type="password" name="password" placeholder="Enter Password here" id="user_email"> 
+          
+          
+          <div class="text-center pt-1 mb-5 pb-1">
+            <button  >Login</button>
+
+                  <div class="main">
+               <a  class="text-muted" th:href= "@{/forgot}" href="#!">Forgot password?</a>
+              </div>
+
+            
+        <div class="d-flex align-items-center justify-content-center pb-4">
+          <h5 style="margin-right: 30%;" class="mb-0 me-10">Don't have an account   </h5>
+          <a href="/signup"> <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger">Create new</button></a>
+         
+        </div>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+    </form>
+
+
+
+
+</section>
+
+ 
+
+
+
+
+
+
+<!-- 
+  
+   
+    <section class="h-100 gradient-form" style="background-color: #d8d6d6;">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div style="margin-bottom: 65px; " class="col-xl-10">
+              <div class="card rounded-3 text-black">
+                <div class="row g-0">
+                  <div class="col-lg-6">
+                    <div class="card-body p-md-5 mx-md-4">
+      
+
+                        <form  id="login-form" class="form" th:action= "@{/dologin}" action="#" method="post">
+                      <div style="height: 95px; margin-top: -53px;  margin-bottom: 50px;" class="text-center" >
+
+                        <svg    style="width: 130px; height: 80px; margin-top: 20px;"  alt="logo" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="0.00016"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="m 8 1 c -1.65625 0 -3 1.34375 -3 3 s 1.34375 3 3 3 s 3 -1.34375 3 -3 s -1.34375 -3 -3 -3 z m -1.5 7 c -2.492188 0 -4.5 2.007812 -4.5 4.5 v 0.5 c 0 1.109375 0.890625 2 2 2 h 6 v -1 h -3 v -4 h 3 v -1.972656 c -0.164062 -0.019532 -0.332031 -0.027344 -0.5 -0.027344 z m 4.5 0 v 3 h -3 v 2 h 3 v 3 h 2 v -3 h 3 v -2 h -3 v -3 z m 0 0" fill="#2e3436"  ></path> </g></svg>
+                          <h4 class="mt-1 mb-5 pb-1">SmartContactManager</h4>
+                      </div>
+                  <div th:if="${param.error}" class="alert alert-danger">
+                    Invalid username and password
+              </div>
+              <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out    
+          </div>
+
+                        <div  data-mdb-input-init class="form-outline">
+                            <label  for="username">Enter your Email</label>
+                          <input type="email" id="username" name="username"  class="form-control"
+                            placeholder=" Enter here" />
+                          
+                        </div>
+      
+                        <div style="padding-top: 20px;" data-mdb-input-init class="form-outline mb-4">
+                            <label for="password">Enter your password</label>
+                          <input type="password" id="password" name="password"  class="form-control" placeholder="Enter here" />
+                         
+                        </div>
+      
+                        <div class="text-center pt-1 mb-5 pb-1">
+                          <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
+                            in</button>
+                          <a class="text-muted" th:href= "@{/forgot}" href="#!">Forgot password?</a>
+                        </div>
+      
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                          <p style="margin-right: 30px;" class="mb-0 me-10">Don't have an account   </p>
+                          <a href="/signup"> <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger">Create new</button></a>
+                         
+                        </div>
+      
+                      
+      
+                    </form>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                      <h4 class="mb-4">Welcome to the Smart Contact Manager</h4>
+                      <p class="small mb-0">A smart contact manager is an application that efficiently organizes, manages, and tracks user contacts with advanced features like categorization, security, and data handling.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>    -->      
+</body>
+</html>
