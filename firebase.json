@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "firebase logout",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
